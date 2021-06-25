@@ -1,0 +1,30 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<br>
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Groups</h5>
+        </div>
+        <div class="card card-body">
+            <table class="table">
+                <tr>
+                    <th>Group</th>
+                    <th>Category</th>
+                </tr>
+                {% for i in groups %}
+                    <tr>
+                        <td>{{ i.name }}</td>
+                        <td>{{ i.category }} </td>
+                    </tr>
+
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<br>GUEST LIST: Click View To Update and Secure A Slot
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-sm">
+                <tr>
+                    <th>Name</th>
+                    <th>WhatsApp Mobile Number</th>
+                    <th>Email Add</th>
+                    <th>Favourite</th>
+                    <th>Hobby</th>
+                    <th>Update</th>
+                    <th>Remove</th>
+                </tr>
+
+                {% for same in special %}
+
+                    <tr>
+                        <td>{{same.customer}}</td>
+                        <td>{{same.whatsapp_num}}</td>
+                        <td>{{same.email_address}}</td>
+                        <td>{{same.groups}}</td>
+                        <td><a class="btn btn-sm btn-info" href="{% url 'update_s' same.id %}">Update</a></td>
+                        <td><a class="btn btn-sm btn-danger" href="{% url 'delete_s' same.id %}">Delete</a></td>
+                    </tr>
+                {% endfor %}
+
+
+
+
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

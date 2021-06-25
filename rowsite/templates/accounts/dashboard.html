@@ -1,0 +1,102 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+{% include 'accounts/status.html' %}
+
+
+{% if request.user.is_staff %}
+<div class ='row'>
+    <div class ='col-md-7'>
+        <h5> CLICK ON YOUR USERNAME TO UPDATE YOUR PROFILE AND SECURE A SLOT:</h5>
+        <hr>
+        <div class ='card card-body'>
+            <a class ='btn btn-primary btn-sm btn-block' href="">BRIEF PROFILE</a>
+            <table class ='table table-sm'>
+                <tr>
+                    <th>GUEST</th>
+                    <th>DATE REGISTERED</th>
+                    <th></th>
+                </tr>
+
+                {% for customer in customers  %}
+                    <tr>
+                        <td>{{ customer.name }}</td>
+                        <td>{{ customer.date_created }}</td>
+                        <td><a class="btn btn-sm btn-info" href="{% url 'customer' customer.id %}">View</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+<div class ='row'>
+    <div class ='col-md-7'>
+        <h5> CLICK ON YOUR USERNAME TO UPDATE YOUR PROFILE AND SECURE A SLOT::</h5>
+        <hr>
+        <div class ='card card-body'>
+            <a class ='btn btn-primary btn-sm btn-block' href="">BRIEF PROFILE</a>
+            <table class ='table table-sm'>
+                <tr>
+                    <th>GUEST</th>
+                    <th></th>
+                </tr>
+
+                {% for customer in customers  %}
+                    <tr>
+                        <td>{{ customer.name }}</td>
+                        <td><a class="btn btn-sm btn-info" href="{% url 'customer' customer.id %}">View</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% if request.user.is_staff %}
+<div class="col-md-7">
+    <h5>Lastest skills registered</h5>
+    <hr>
+    <div class ='card card-body'>
+        <a class="btn btn-primary btn-sm btn-block" href="">EDIT</a>
+        <table class ='table table-sm'>
+            <tr>
+                <th>Group</th>
+                <th>Category</th>
+                <th>Guest</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+
+            {% for same in specialization %}
+                <tr>
+                    <td>{{ same.groups }}</td>
+                    <td>{{ same.level }}</td>
+                    <td>{{ same.customer.name }}</td>
+                    <td><a class="btn btn-sm btn-info" href="{% url 'update_s' same.id %}">Update</a></td>
+                    <td><a class="btn btn-sm btn-danger" href="{% url 'delete_s' same.id %}">Delete</a></td>
+
+                </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+</div>
+{% endif %}
+
+
+{% endblock %}

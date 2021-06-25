@@ -1,0 +1,87 @@
+<br>
+
+
+{% if request.user.is_staff %}
+<div class="row">
+    <div class ='col'>
+        <div class="col-md">
+            <div class="card text-center text-white mb-3" id="total-guest">
+                <div class="card-title bg-info">
+                    <h5 class="card-title">Total Guest</h5>
+
+                </div>
+                <div class="card-body bg-primary">
+                    <h3 class="card-title">{{ total_customers }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class ='col'>
+        <div class="col-md">
+            <div class="card text-center text-white mb-3" id="total-gt">
+                <div class="card-title bg-info">
+                    <h5 class="card-title">Total Anime </h5>
+
+                </div>
+                <div class="card-body bg-primary">
+                    <h3 class="card-title">{{ total_anime }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class ='col'>
+        <div class="col-md">
+            <div class="card text-center text-white mb-3" id="total-design">
+                <div class="card-title bg-info">
+                    <h5 class="card-title">Total Graphic Designers </h5>
+
+                </div>
+                <div class="card-body bg-primary">
+                    <h3 class="card-title">{{ total_design }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class ='col'>
+        <div class="col-md">
+            <div class="card text-center text-white mb-3" id="total-tech">
+                <div class="card-title bg-info">
+                    <h5 class="card-title">Total Tech </h5>
+
+                </div>
+                <div class="card-body bg-primary">
+                    <h3 class="card-title">{{ total_tech }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class ='col'>
+        <div class="col-md">
+            <div class="card text-center text-white mb-3" id="total-crypto">
+                <div class="card-title bg-info">
+                    <h5 class="card-title">Total Crypto </h5>
+
+                </div>
+                <div class="card-body bg-primary">
+                    <h3 class="card-title">{{ total_crypto }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}

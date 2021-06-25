@@ -1,0 +1,66 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+{% load static %}
+<body style="background-image:url('{% static 'images/icon2.png'%}')">
+
+</body>
+
+
+
+
+<br>
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h4>Welcome, {{ request.user.customer.name }}:</h4>
+            <h5>Please, kindly update your profile info then join our WhatsApp community</h5>
+            <hr>
+            <a class="btn btn-outline-info btn-sm btn-block" href="{% url 'create' customer.id %}">Click To Update Profile Info:</a>
+                        <hr>
+            <a class="btn btn-outline-info btn-sm btn-block" href="https://­chat.whatsapp.com/­IaSyvZFHyD3E4Ufi3sPVO­M">Click To Join Our WhatsApp Community</a>
+        </div>
+    </div>
+
+
+
+<br>
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-sm">
+                <tr>
+                    <th>Name</th>
+                    <th>WhatsApp Number</th>
+                    <th>Email</th>
+                    <th>Favourite</th>
+                    <th>Hobby</th>
+                    <th>Update</th>
+                    <th>Remove</th>
+                </tr>
+
+                {% for same in customergp %}
+
+                    <tr>
+                        <td>{{same.customer}}</td>
+                        <td>{{same.whatsapp_num}}</td>
+                        <td>{{same.email_address}}</td>
+                        <td>{{same.groups.category}}</td>
+                        <td>{{same.groups}}</td>
+                        <td><a class="btn btn-sm btn-info" href="{% url 'update_s' same.id %}">Update</a></td>
+                        <td><a class="btn btn-sm btn-danger" href="{% url 'delete_s' same.id %}">Delete</a></td>
+
+                    </tr>
+                {% endfor %}
+
+
+            </table>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+
+{% endblock %}

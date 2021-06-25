@@ -1,0 +1,39 @@
+{% load static %}
+
+
+<style>
+  .hello-msg{
+  font-size: 18px;
+  color: #fff;
+  margin-right: 20px;
+  }
+</style>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  {% if request.user.is_staff %}
+  <a class="narv-brand" href="{% url 'home' %}">HOME</a>
+{% endif %}
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="#">TECH-X-AMIME</a>
+      </li>
+
+
+
+
+    </ul>
+
+  </div>
+  <span class="hello-msg">Hello, {{ request.user.customer }} </span>
+
+  <div>
+    <span ><a class="hello-msg" href="{% url 'logout' %}">Logout</a> </span>
+  </div>
+
+</nav>
